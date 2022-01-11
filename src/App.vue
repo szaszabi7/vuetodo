@@ -110,6 +110,7 @@ export default {
       })
       await this.loadData()
       this.saving=false
+      this.reserForm()
     },
     async editPainting(id) {
       let Response = await fetch(`http://127.0.0.1:8000/api/paintings/${id}`)
@@ -118,7 +119,7 @@ export default {
       this.mod_new = false
     },
     cancelEdit() {
-      this.mod_new = true
+      this.reserForm()
     },
     async savePainting() {
       this.saving='disabled'
@@ -132,6 +133,16 @@ export default {
       })
       await this.loadData()
       this.saving=false
+      this.reserForm()
+    },
+    reserForm() {
+      this.painting = {
+        id: null,
+        title: '',
+        year: '',
+        on_display: false
+      },
+      this.mod_new = true
     }
   }
 }
