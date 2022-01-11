@@ -144,6 +144,9 @@ export default {
       },
       this.mod_new = true
     }
+  },
+  mounted() {
+    this.loadData()
   }
 }
 </script>
